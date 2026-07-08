@@ -4,9 +4,18 @@
 # omarchy:examples=omarchy theme current
 
 THEME_NAME_PATH="$HOME/.config/omarchy/current/theme.name"
+USER_THEMES_PATH="$HOME/.config/omarchy/themes"
+OMARCHY_PATH=${OMARCHY_PATH:-$HOME/.local/share/omarchy}
+OMARCHY_THEMES_PATH="$OMARCHY_PATH/themes"
 
 if [[ -f $THEME_NAME_PATH ]]; then
-  cat $THEME_NAME_PATH | sed -E 's/(^|-)([a-z])/\1\u\2/g; s/-/ /g'
+  theme_name=$(cat "$THEME_NAME_PATH")
+
+  if [[ -d $USER_THEMES_PATH/$theme_name || -d $OMARCHY_THEMES_PATH/$theme_name ]]; then
+    echo "$theme_name" | sed -E 's/(^|-)([a-z])/\1\u\2/g; s/-/ /g'
+  else
+    echo "Unknown"
+  fi
 else
   echo "Unknown"
 fi

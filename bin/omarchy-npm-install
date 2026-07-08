@@ -57,7 +57,7 @@ exec_package_bin() {
 }
 
 # Resolve the package bin inside pnpm dlx, then run it with node@latest available for node shebangs.
-# Some wrappers are aliases, e.g. playwright-cli wraps the playwright bin.
+# Some wrappers expose a different binary name than the package name.
 PATH="\$node_root/bin:\$PATH" pnpm dlx --package "\$package" true
 
 package_bin_path=\$(PATH="\$node_root/bin:\$PATH" pnpm dlx --package "\$package" which "\$package" 2>/dev/null)

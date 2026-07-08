@@ -1,6 +1,6 @@
 # Changes require a restart to take effect.
 
-# Install other terminals via Install > Terminal
+# Terminal commands launch through xdg-terminal-exec using Alacritty.
 export TERMINAL=xdg-terminal-exec
 
 # Used by terminal programs (like gh) to open URLs detached from the terminal process tree

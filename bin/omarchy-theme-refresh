@@ -3,7 +3,16 @@
 # omarchy:summary=Refresh the current theme from its templates.
 
 THEME_NAME_PATH="$HOME/.config/omarchy/current/theme.name"
+USER_THEMES_PATH="$HOME/.config/omarchy/themes"
+OMARCHY_PATH=${OMARCHY_PATH:-$HOME/.local/share/omarchy}
+OMARCHY_THEMES_PATH="$OMARCHY_PATH/themes"
 
 if [[ -f $THEME_NAME_PATH ]]; then
-  OMARCHY_THEME_SKIP_BACKGROUND=1 omarchy-theme-set "$(cat $THEME_NAME_PATH)"
+  theme_name=$(cat "$THEME_NAME_PATH")
+
+  if [[ ! -d $USER_THEMES_PATH/$theme_name && ! -d $OMARCHY_THEMES_PATH/$theme_name ]]; then
+    theme_name=$(omarchy-theme-list | head -n 1)
+  fi
+
+  [[ -n $theme_name ]] && OMARCHY_THEME_SKIP_BACKGROUND=1 omarchy-theme-set "$theme_name"
 fi

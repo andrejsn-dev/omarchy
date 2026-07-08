@@ -80,11 +80,11 @@ assert_output_contains "group help renders" "$output" "Theme commands"
 
 output=$("$CLI" install --help)
 assert_output_contains "install group help renders" "$output" "Install commands"
-assert_output_contains "install group includes browser route" "$output" "omarchy install browser"
+assert_output_contains "install group includes tailscale route" "$output" "omarchy install tailscale"
 
 output=$("$CLI" install)
 assert_output_contains "bare group renders help instead of picker" "$output" "Install commands"
-assert_output_contains "bare group includes browser route" "$output" "omarchy install browser"
+assert_output_contains "bare group includes tailscale route" "$output" "omarchy install tailscale"
 
 output=$("$CLI" toggle)
 assert_output_contains "bare root command with children renders help" "$output" "Toggle commands"
@@ -98,12 +98,11 @@ assert_output_contains "restart group includes inferred commands" "$output" "oma
 assert_output_contains "restart group includes all restart commands" "$output" "omarchy restart wifi"
 
 output=$("$CLI" hw --help)
-assert_output_contains "hardware group help renders" "$output" "omarchy hw asus rog"
+assert_output_contains "hardware group help renders" "$output" "omarchy hw nvidia gsp"
 assert_output_contains "hardware group includes touchpad" "$output" "omarchy hw touchpad"
 
-output=$("$CLI" hw asus)
-assert_output_contains "partial hardware prefix renders matching commands" "$output" "omarchy hw asus rog"
-assert_output_contains "partial hardware prefix includes nested match" "$output" "omarchy hw asus zenbook ux5406aa"
+output=$("$CLI" hw nvidia)
+assert_output_contains "partial hardware prefix renders matching commands" "$output" "omarchy hw nvidia gsp"
 
 output=$("$CLI" menu --help)
 assert_output_contains "menu group includes share fallback route" "$output" "omarchy menu share"

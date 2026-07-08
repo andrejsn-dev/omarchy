@@ -34,7 +34,7 @@ ShellRoot {
   property int sliceHeight: 432
   property int sliceSpacing: -30
   property int skewOffset: 28
-  property int bottomChromeHeight: showLabels ? (filterable ? 104 : 74) : (filterable ? 60 : 30)
+  property int bottomControlsHeight: showLabels ? (filterable ? 104 : 74) : (filterable ? 60 : 30)
 
   function fileUrl(path) {
     return "file://" + path.split("/").map(encodeURIComponent).join("/")
@@ -378,7 +378,7 @@ ShellRoot {
     Item {
       id: card
       width: Math.min(parent.width - 80, root.expandedWidth + 13 * (root.sliceWidth + root.sliceSpacing) + 40)
-      height: root.expandedHeight + 30 + root.bottomChromeHeight
+      height: root.expandedHeight + 30 + root.bottomControlsHeight
       anchors.centerIn: parent
 
       MouseArea { anchors.fill: parent; onClicked: {} }
@@ -388,7 +388,7 @@ ShellRoot {
         anchors.top: parent.top
         anchors.topMargin: 30
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: root.bottomChromeHeight
+        anchors.bottomMargin: root.bottomControlsHeight
         anchors.horizontalCenter: parent.horizontalCenter
         width: root.expandedWidth + 13 * (root.sliceWidth + root.sliceSpacing)
         clip: false

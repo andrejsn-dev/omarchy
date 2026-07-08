@@ -1,7 +1,7 @@
-# Create a Tmux Dev Layout with editor, ai, and terminal
-# Usage: tdl <c|cx|codex|other_ai> [<second_ai>]
+# Create a Tmux Dev Layout with editor, AI, and terminal
+# Usage: tdl <c|cx|codex|claude|other_ai> [<second_ai>]
 tdl() {
-  [[ -z $1 ]] && { echo "Usage: tdl <c|cx|codex|other_ai> [<second_ai>]"; return 1; }
+  [[ -z $1 ]] && { echo "Usage: tdl <c|cx|codex|claude|other_ai> [<second_ai>]"; return 1; }
   [[ -z $TMUX ]] && { echo "You must start tmux to use tdl."; return 1; }
 
   local current_dir="${PWD}"
@@ -34,17 +34,17 @@ tdl() {
   tmux send-keys -t "$editor_pane" "$EDITOR ." C-m
 
   # Select the nvim pane for focus
-  tmux select-pane -t "$opencode_pane"
+  tmux select-pane -t "$editor_pane"
 }
 
-# Create a Tmux Dev Square layout with editor, diff watch, terminal, and opencode
+# Create a Tmux Dev Square layout with editor, diff watch, terminal, and Codex
 # Usage: tds
 tds() {
   [[ -n $1 ]] && { echo "Usage: tds"; return 1; }
   [[ -z $TMUX ]] && { echo "You must start tmux to use tds."; return 1; }
 
   local current_dir="${PWD}"
-  local editor_pane diff_pane terminal_pane opencode_pane
+  local editor_pane diff_pane terminal_pane codex_pane
 
   editor_pane="$TMUX_PANE"
 
@@ -52,22 +52,22 @@ tds() {
 
   terminal_pane=$(tmux split-window -v -p 50 -t "$editor_pane" -c "$current_dir" -P -F '#{pane_id}')
   diff_pane=$(tmux split-window -h -p 50 -t "$editor_pane" -c "$current_dir" -P -F '#{pane_id}')
-  opencode_pane=$(tmux split-window -h -p 50 -t "$terminal_pane" -c "$current_dir" -P -F '#{pane_id}')
+  codex_pane=$(tmux split-window -h -p 50 -t "$terminal_pane" -c "$current_dir" -P -F '#{pane_id}')
 
   tmux send-keys -t "$editor_pane" -l "nvim ."
   tmux send-keys -t "$editor_pane" C-m
   tmux send-keys -t "$diff_pane" -l "hunk diff --watch"
   tmux send-keys -t "$diff_pane" C-m
-  tmux send-keys -t "$opencode_pane" -l "opencode"
-  tmux send-keys -t "$opencode_pane" C-m
+  tmux send-keys -t "$codex_pane" -l "codex"
+  tmux send-keys -t "$codex_pane" C-m
 
   tmux select-pane -t "$editor_pane"
 }
 
 # Create multiple tdl windows with one per subdirectory in the current directory
-# Usage: tdlm <c|cx|codex|other_ai> [<second_ai>]
+# Usage: tdlm <c|cx|codex|claude|other_ai> [<second_ai>]
 tdlm() {
-  [[ -z $1 ]] && { echo "Usage: tdlm <c|cx|codex|other_ai> [<second_ai>]"; return 1; }
+  [[ -z $1 ]] && { echo "Usage: tdlm <c|cx|codex|claude|other_ai> [<second_ai>]"; return 1; }
   [[ -z $TMUX ]] && { echo "You must start tmux to use tdlm."; return 1; }
 
   local ai="$1"

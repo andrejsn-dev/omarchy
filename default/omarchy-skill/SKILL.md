@@ -3,7 +3,7 @@ name: omarchy
 description: >
   REQUIRED for end-user customization of Linux desktop, window manager, or system config.
   Use when editing ~/.config/hypr/, ~/.config/waybar/, ~/.config/walker/,
-  ~/.config/alacritty/, ~/.config/foot/, ~/.config/kitty/, ~/.config/ghostty/, ~/.config/mako/,
+  ~/.config/alacritty/, ~/.config/mako/,
   or ~/.config/omarchy/. Triggers: Hyprland, window rules, animations, keybindings,
   monitors, gaps, borders, blur, opacity, waybar, walker, terminal config, themes,
   background, night light, idle, lock screen, screenshots, reminders, layer rules,
@@ -24,7 +24,7 @@ It is not for contributing to Omarchy source code.
 
 - Editing ANY file in `~/.config/hypr/` (window rules, animations, keybindings, monitors, etc.)
 - Editing ANY file in `~/.config/waybar/`, `~/.config/walker/`, `~/.config/mako/`
-- Editing terminal configs (alacritty, foot, kitty, ghostty)
+- Editing terminal configs (alacritty)
 - Editing ANY file in `~/.config/omarchy/`
 - Window behavior, animations, opacity, blur, gaps, borders
 - Layer rules, workspace settings, display/monitor configuration
@@ -34,7 +34,7 @@ It is not for contributing to Omarchy source code.
 
 **If you're about to edit a config file in ~/.config/ on this system, STOP and use this skill first.**
 
-**Do NOT use this skill for Omarchy development tasks** (editing files in `~/.local/share/omarchy/`, creating migrations, or running `omarchy dev ...` workflows).
+**Do NOT use this skill for Omarchy development tasks** (editing files in `~/.local/share/omarchy/` or running `omarchy dev ...` workflows).
 
 ## Critical Safety Rules
 
@@ -51,7 +51,6 @@ This directory contains Omarchy's source files managed by git. Any changes will 
 ├── config/                 # Default config templates
 ├── themes/                 # Stock themes
 ├── default/                # System defaults
-├── migrations/             # Update migrations
 └── install/                # Installation scripts
 ```
 
@@ -78,7 +77,7 @@ Omarchy is built on:
 | **Hyprland** | Wayland compositor/WM | `~/.config/hypr/` |
 | **Waybar** | Status bar | `~/.config/waybar/` |
 | **Walker** | App launcher | `~/.config/walker/` |
-| **Alacritty/Foot/Kitty/Ghostty** | Terminals | `~/.config/<terminal>/` |
+| **Alacritty** | Terminal | `~/.config/alacritty/` |
 | **Mako** | Notifications | `~/.config/mako/` |
 | **SwayOSD** | On-screen display | `~/.config/swayosd/` |
 
@@ -115,7 +114,7 @@ Run `omarchy --help` for the full list. The most common groups:
 | `omarchy restart` | Restart a service/app | `omarchy restart waybar` |
 | `omarchy toggle` | Toggle feature on/off | `omarchy toggle nightlight` |
 | `omarchy theme` | Theme management | `omarchy theme set <name>` |
-| `omarchy install` | Install optional software / packages | `omarchy install docker dbs` |
+| `omarchy install` | Install optional software / packages | `omarchy install tailscale` |
 | `omarchy launch` | Launch apps | `omarchy launch browser` |
 | `omarchy capture` | Screenshots and recordings | `omarchy capture screenshot` |
 | `omarchy reminder` | Desktop notification reminders | `omarchy reminder 15 "Pickup Jack"` |
@@ -164,9 +163,6 @@ Run `omarchy --help` for the full list. The most common groups:
 
 ```
 ~/.config/alacritty/alacritty.toml
-~/.config/foot/foot.ini
-~/.config/kitty/kitty.conf
-~/.config/ghostty/config
 ```
 
 **Command:** `omarchy restart terminal`
@@ -373,8 +369,7 @@ omarchy reminder clear
 ## Out of Scope
 
 This skill intentionally does not cover Omarchy source development. Do not use this skill for:
-- Editing files in `~/.local/share/omarchy/` (`bin/`, `config/`, `default/`, `themes/`, `migrations/`, etc.)
-- Creating or editing migrations
+- Editing files in `~/.local/share/omarchy/` (`bin/`, `config/`, `default/`, `themes/`, etc.)
 - Running `omarchy dev ...` commands
 
 ## Example Requests

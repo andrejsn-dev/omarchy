@@ -1,9 +1,5 @@
 # Omarchy core package list installed via install/packaging/base.sh
-# This file is also used by the ISO builder when determining needs
 
-1password-beta
-1password-cli
-aether
 alsa-utils
 asdcontrol
 avahi
@@ -14,9 +10,7 @@ bolt
 brightnessctl
 btop
 chromium
-clang
 claude-code
-cliamp
 cups
 cups-browsed
 cups-filters
@@ -25,7 +19,6 @@ docker
 docker-buildx
 docker-compose
 dosfstools
-dotnet-runtime-9.0
 dua-cli
 evince
 exfatprogs
@@ -38,7 +31,7 @@ fcitx5-qt
 fd
 ffmpegthumbnailer
 fontconfig
-foot
+alacritty
 fzf
 github-cli
 gnome-calculator
@@ -64,7 +57,6 @@ inetutils
 inxi
 iwd
 jq
-kdenlive
 kernel-modules-hook
 kvantum-qt5
 lazydocker
@@ -73,7 +65,6 @@ less
 libsecret
 libyaml
 libqalculate
-libreoffice-fresh
 llvm
 localsend
 luarocks
@@ -91,12 +82,10 @@ noto-fonts-cjk
 noto-fonts-emoji
 nss-mdns
 nvim
-obs-studio
 obsidian
 omarchy-nvim
 omarchy-walker
 pamixer
-pinta
 playerctl
 plocate
 plymouth
@@ -110,11 +99,8 @@ qemu-user-static-binfmt
 qt5-wayland
 quickshell
 ripgrep
-ruby
-rust
 satty
 sddm
-signal-desktop
 slurp
 spotify
 socat
@@ -128,10 +114,8 @@ tesseract-data-eng
 tldr
 tree-sitter-cli
 tmux
-tobi-try
 ttf-ia-writer
 ttf-jetbrains-mono-nerd
-typora
 tzupdate
 ufw
 ufw-docker
@@ -149,7 +133,6 @@ xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 xdg-terminal-exec
 xmlstarlet
-xournalpp
 yaru-icon-theme
 yay
 zoxide

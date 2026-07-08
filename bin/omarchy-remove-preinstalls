@@ -13,24 +13,11 @@ if gum confirm "Are you sure you want to remove all preinstalled web apps, TUI w
   hyprctl reload
 
   # Remove npm stubs
-  rm -f ~/.local/bin/codex ~/.local/bin/gemini ~/.local/bin/copilot \
-       ~/.local/bin/opencode ~/.local/bin/playwright-cli ~/.local/bin/pi
+  rm -f ~/.local/bin/codex
 
   omarchy-pkg-drop \
-    aether \
-    cliamp \
-    typora \
     spotify \
-    libreoffice-fresh \
-    1password-beta \
-    1password-cli \
-    xournalpp \
-    signal-desktop \
-    pinta \
     obsidian \
-    obs-studio \
-    kdenlive \
     lazydocker \
-    opencode \
     claude-code
 fi
